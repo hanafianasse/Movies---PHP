@@ -1,9 +1,11 @@
 <?php
 	session_start();
 	include('User.php');
-	if(!isset($_SESSION["connectedUser"])){
+	if(isset($_SESSION["connectedUser"])){
 		$connectedUser = new User("anasse","ans","Live1994",["ADM"]);
 		$_SESSION["connectedUser"] = serialize($connectedUser);
+	}else{
+		header('location:/echange_sportive/login.php');
 	}
 ?>
 <!DOCTYPE html>

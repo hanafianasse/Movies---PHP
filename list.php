@@ -8,9 +8,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	
 	<?php
-	echo '<script type="text/javascript">Messenger().post("Your request has succeded !");</script>';
 		try{
 			$stmt = $db->query('select * from movie');
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -31,3 +29,9 @@
 	?>
 	</tbody>
 </table>
+
+<?php
+	if(isset($_GET["updated"])){
+		echo '<script type="text/javascript">Messenger().post("Your request has succeded !");</script>';
+	}
+?>
